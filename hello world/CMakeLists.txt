@@ -1,0 +1,10 @@
+cmake_minimum_required (VERSION 3.8)
+project(Hello CXX)
+add_executable(Hello hi.cpp)
+
+target_compile_features(Hello PUBLIC cxx_std_17)
+if (MSVC)
+    target_compile_options(Hello PUBLIC /W4 /WX)
+else()
+    target_compile_options(Hello PUBLIC -Wall -Wextra -Werror -pedantic)
+endif()
